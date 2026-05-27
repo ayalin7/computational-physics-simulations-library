@@ -1,0 +1,34 @@
+{
+  "latex-workshop.latex.outDir": "%DIR%/build",
+
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk_build",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "-outdir=build",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "copy_pdf",
+      "command": "cp",
+      "args": [
+        "build/%DOCFILE%.pdf",
+        "%DIR%/"
+      ]
+    }
+  ],
+
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (build + copy)",
+      "tools": ["latexmk_build", "copy_pdf"]
+    }
+  ],
+
+  "latex-workshop.latex.recipe.default": "latexmk (build + copy)"
+}
