@@ -1,1 +1,112 @@
-%%
+\documentclass[twoside]{article}
+\usepackage[table]{xcolor}
+\usepackage[paper=letterpaper,left=3cm,right=3cm,top=3cm,bottom=2cm,includefoot]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage[colorlinks]{hyperref}
+\usepackage{hhline}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\setenumerate{itemsep=-3pt,topsep=3pt}
+\setdescription{itemsep=-3pt,topsep=3pt,leftmargin=!,labelwidth=4.5cm}
+\usepackage{pgfgantt}
+\usepackage{graphicx}   \graphicspath{{./img/} {./tex/img/}}
+\usepackage{amsfonts}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum}
+\def\code#1{\texttt{#1}}
+
+
+% insertar codigo Julia en documento latex
+%\usepackage{minted}
+%\definecolor{LightGray}{gray}{0.92}
+
+% Se define el entorno para Julia con las mismas configuraciones
+%\newminted{julia}{ linenos,breaklines,mathescape,texcomments,xleftmargin=\parindent, numbersep=8pt, bgcolor=LightGray
+%}
+
+%\renewcommand\listingscaption{C\'odigo}
+
+
+% bibliografia: descomente estas dos lineas para usar estilo numerico, e.g. [1].
+\usepackage[square,numbers,sort&compress]{natbib}
+\bibliographystyle{apastyle}
+
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot{}
+
+%header y footer
+\fancyfoot[RE,RO]{\thepage}
+\fancyfoot[LE,LO]{Benjamin Ayala Baeza}
+
+
+\definecolor{tcc}{RGB}{217,217,217} % Table cell color
+
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\setlength{\arrayrulewidth}{0.5pt}
+\renewcommand{\arraystretch}{2}
+
+\tcbset{
+    portada/.style={
+        enhanced,
+        colback=white,
+        colframe=black,
+        sharp corners,
+        boxrule=0.4pt,
+        drop shadow, % sombra elegante
+        width=\textwidth,
+        center
+    }
+}
+
+%esto hace que desaperezca el header en la primera plana
+\fancypagestyle{plainfirst}{
+    \fancyhf{}
+    \fancyfoot[RE,RO]{\thepage} % mantiene número de página
+}
+
+\begin{document}
+
+\thispagestyle{plainfirst}
+
+%\vspace*{\fill}
+\begin{tcolorbox}[portada]
+    \centering
+    {\Huge \bfseries Electric Field of a Point Charge}\\[0.5cm]
+    %{\LARGE Derivación Númerica}\\[0.5cm]
+    {\large Benjamín Ayala Baeza}
+\end{tcolorbox}
+%\vspace*{\fill}
+
+
+
+\section{Introduction}
+An usual problem in physics, specifically in electromagnetism is the finding of the electric field in a given situation,
+Normally, we go from the most basic situation into the mot difficult ones. That is why I'm begging with most simple and intuitive 
+search for the electric field, the field of just one charged particle in the space. I'll also compute it's electric potential. 
+
+This is an interesting problem because it cements the foundations for more non-trivial situations. 
+A simulation will be included, which shows how the electric field changes according a change in the charge's position.
+
+\section{Physical Theory}
+The most basic and direct way to compute the electric field of a distribution charge (continuos) is using Gauss's Law:
+
+    \begin{align}
+        \oint \vec{E} \cdot d\vec{S} = \frac{\rho}{\varepsilon_0}.  \label{eq:gauss-law}
+    \end{align}
+In general, solving this integral requires integrating over a known space but in general, we write the electric field of a distribution charge as:
+
+    \begin{align}
+        \vec{E}(\vec{r}) = \frac{1}{4\pi \varepsilon_0} \frac{\rho}{|\vec{r}-\vec{r}'|} \hat{r}. \label{eq:electric-field}
+    \end{align}
+Notices that if we are integrating over an enclosed sphere in \eqref{eq:gauss-law} we obtain the equation \eqref{eq:electric-field} in which we defined two vector, $\vec{r}$ and $\vec{r}'$,
+where the first corresponds to the position of the field point whereas the second vector corresponds to the position of the charge distribution.
+\end{document}
