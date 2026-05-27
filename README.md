@@ -48,7 +48,6 @@ simulation_name/
 │
 ├── docs/
 │   ├── theory.tex
-│   ├── derivation.tex
 │   └── references.bib
 │
 ├── solver/
