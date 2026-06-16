@@ -50,15 +50,10 @@ simulation_name/
 │   ├── theory.tex
 │   └── references.bib
 │
-├── solver/
+├── src/
 │   ├── main_solver.jl
 │   ├── helper_functions.jl
 │   └── numerical_methods.jl
-│
-├── simulation/
-│   ├── plots/
-│   ├── animations/
-│   ├── output/
 │   └── visualization.jl
 │
 └── README.md
