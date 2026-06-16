@@ -90,7 +90,7 @@
 
 \section{Introduction}
 An usual problem in physics, specifically in electromagnetism is the finding of the electric field in a given situation,
-Normally, we go from the most basic situation into the mot difficult ones. That is why I'm begging with most simple and intuitive 
+Normally, we go from the most basic situation into the mot difficult ones. That is why I'm beggining with most simple and intuitive 
 search for the electric field, the field of just one charged particle in the space. I'll also compute it's electric potential. 
 
 This is an interesting problem because it cements the foundations for more non-trivial situations. 
@@ -100,13 +100,32 @@ A simulation will be included, which shows how the electric field changes accord
 The most basic and direct way to compute the electric field of a distribution charge (continuos) is using Gauss's Law:
 
     \begin{align}
-        \oint \vec{E} \cdot d\vec{S} = \frac{\rho}{\varepsilon_0}.  \label{eq:gauss-law}
+        \oint \vec{E} \cdot d\vec{S} = \frac{Q_{enc}}{\varepsilon_0}.  \label{eq:gauss-law}
     \end{align}
-In general, solving this integral requires integrating over a known space but in general, we write the electric field of a distribution charge as:
+In general, solving this integral requires integrating over a known space but, in general, we write the electric field of a distribution charge as:
 
     \begin{align}
-        \vec{E}(\vec{r}) = \frac{1}{4\pi \varepsilon_0} \frac{\rho}{|\vec{r}-\vec{r}'|} \hat{r}. \label{eq:electric-field}
+        \vec{E}(\vec{r}) = \frac{1}{4\pi \varepsilon_0} \frac{q}{|\vec{r}-\vec{r}'|} \hat{r}. \label{eq:electric-field}
     \end{align}
+
 Notices that if we are integrating over an enclosed sphere in \eqref{eq:gauss-law} we obtain the equation \eqref{eq:electric-field} in which we defined two vector, $\vec{r}$ and $\vec{r}'$,
 where the first corresponds to the position of the field point whereas the second vector corresponds to the position of the charge distribution.
+In the theory we also know that the curl of $\vec{E}$ is cero, therefore, we can write the electric field in terms of a scalar potential, from that idea is shown in \eqref{eq:gauss-law}, but more 
+precisly it can look as:
+
+    \begin{align}
+        \vec{E} = -\nabla V. \label{eq:electric-potential-from-field}
+    \end{align}
+
+If we diferentiate \eqref{eq:gauss-law} we obtain the differential form of Gauss's Law, 
+
+    \begin{align}
+        \nabla \cdot \vec{E} = \frac{\rho}{\varepsilon_0}. \label{eq:gauss-law-differential}
+    \end{align}
+Then, \eqref{eq:electric-potential-from-field} in \eqref{eq:gauss-law-differential} comes to the known Poisson equation:
+
+    \begin{align}
+        \nabla^2 V = - \frac{\rho}{\varepsilon_0}
+    \end{align}
+
 \end{document}
